@@ -41,7 +41,7 @@ class Show{
             <form>
                 <div class="pb-3">
                     <div class="col requierd">
-                        <input class="form-control" type="text" placeholder="Enter your name" required>
+                        <input class="form-control" type="text" placeholder="Enter your name">
                     </div>
                 </div>
             </form>
