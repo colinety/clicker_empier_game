@@ -10,27 +10,17 @@
     <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
     <!--CSS-->
     <link rel="stylesheet" href="style.css">
-    <!--JavaScript-->
-    <script src="project3.js"></script>
     <!--title-->
     <title>Clicker Empier Game</title>
 </head>
 <body>
-    <div class="d-flex vh-100 justify-content-center align-items-center bg-dark">
-        <div id="initial" class="justify-content-center text-center col-8 bg-white rounded-pill">
-            <h1 class="p-4">Clicker Empier Game</h1>
-            <form id="user-form" class="d-flex row justify-content-center" onsubmit="initializeUserAccount(); event.preventDefault()">
-                <div class="pb-4 col-6 d-flex justify-content-center">
-                    <input type="text" class="form-control form-control-lg" name="user-name" placeholder="Enter your name" required>
-                </div>
-                <div class="p-3">
-                    <button type="submit" class="btn btn-lg btn-success col-3">Login</button>
-                    <button type="submit" class="btn btn-lg btn-primary col-3">New</button>
-                </div>
-            </form>
+    <div class="bg-dark">
+        <div id="initial_form"></div>
+        </div>
+        <div id="main_page">
         </div>
     </div>
-    <div id="main-page" class="col-12 bg-success text-center test-white">
-    </div>
+    <!--JavaScript-->
+    <script src="project3.js"></script>
 </body>
 </html>

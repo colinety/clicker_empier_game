@@ -1,0 +1,21 @@
+.flow_height{
+    overflow-y: scroll;
+    height: 70%;
+}
+
+.hover{
+    cursor: pointer;
+}
+
+.hover:hover{
+    opacity: 0.7;
+}
+
+.select_item{
+    background-color: rgb(38, 161, 48);
+}
+
+.select_item:hover{
+    border: 2px solid steelblue;
+    cursor: pointer;
+}
