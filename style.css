@@ -19,3 +19,11 @@
     border: 2px solid steelblue;
     cursor: pointer;
 }
+
+#initial_page{
+    border-radius: 10px;
+}
+
+.round{
+    border-radius: 10px;
+}

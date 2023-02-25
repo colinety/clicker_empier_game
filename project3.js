@@ -36,7 +36,7 @@ class Show{
         container.classList.add("vh-100", "d-flex", "justify-content-center", "align-items-center");
         container.innerHTML =
         `
-        <div class="bg-white text-center p-4">
+        <div id="initial_page" class="bg-white text-center p-4">
             <h1 class="pb-3">Clicker Empire Game</h1>
             <form>
                 <div class="pb-3">
@@ -64,7 +64,7 @@ class Show{
         container.innerHTML =
         `
         <div class="d-flex justify-content-center vh-100 bg-success">
-            <div class="p-2 d-flex">
+            <div class="p-2 d-flex round">
                 <div id="burger_status" class="bg-dark p-2">
                 </div>
                 <div class="col-8">
@@ -107,12 +107,12 @@ class Show{
         let container = document.createElement("div");
         container.innerHTML =
         `
-        <div class="bg-success text-white text-center">
+        <div class="bg-success text-white text-center round">
             <h3>${user.click_count} Burgers</h3>
             <p class="p-1">￥${user.income_per_click} /Click</p>
         </div>
         <div class="p-2 pt-5 d-flex justify-content-center hover">
-            <img id="burger" class="py-2 img-fluid" src="https://cdn.pixabay.com/photo/2014/04/02/17/00/burger-307648_960_720.png" width=80%>
+            <img id="burger" class="py-2 img-fluid" src="https://4.bp.blogspot.com/-Hh-v-HSVFWU/WlGnm3Azi4I/AAAAAAABJcw/gD8LGVVaEM0_P5WOL21U2cbvDK6oISzLgCLcBGAs/s800/cookie1_circle.png" width=80%>
         </div>
         `
         let burger_click = container.querySelectorAll("#burger")[0];
@@ -129,16 +129,16 @@ class Show{
         container.innerHTML =
         `
         <div class="d-flex flex-wrap justify-content-center bg-dark col-12 m-1">
-            <div class="bg-success text-white text-center col-5 m-1">
+            <div class="bg-success text-white text-center col-5 m-1 round">
                 <p>${user.name}</p>
             </div>
-            <div class="bg-success text-white text-center col-5 m-1">
+            <div class="bg-success text-white text-center col-5 m-1 round">
                 <p>${user.age} years old</p>
             </div>
-            <div class="bg-success text-white text-center col-5 m-1">
+            <div class="bg-success text-white text-center col-5 m-1 round">
                 <p>${user.days} days</p>
             </div>
-            <div class="bg-success text-white text-center col-5 m-1">
+            <div class="bg-success text-white text-center col-5 m-1 round">
                 <p>${user.money}</p>
             </div>
         </div>
@@ -152,7 +152,7 @@ class Show{
         for(let i = 0; i < user.items.length; i++){
             container.innerHTML +=
             `
-            <div class="d-flex text-white align-items-center m-1 select_item col-12">
+            <div class="d-flex text-white align-items-center m-1 select_item col-12 round">
                 <div class="col-2">                    
                     <img class="img-fluid d-flex flex-wrap" src="${user.items[i].url}">
                 </div>
@@ -184,20 +184,20 @@ class Show{
         let container = document.createElement("div");
         container.innerHTML =
         `
-        <div class="bg-success p-2 m-1 text-white">
+        <div class="bg-success p-2 m-1 text-white round">
             <div class="d-flex justify-content-between align-items-center">
-                <div>
+                <div class="col-8">
                     <h4>${user.items[index].name}</h4>
                     <p>Max purchases: ${Show.display_max_purchase(user.items[index].max_amount)}</p>
                     <p>Price: ￥${user.items[index].price}</p>
                     <p>Get ￥${Show.display_item_income(user.items[index], user.items[index].type)}</p>
                 </div>
-                <div class="p-2 d-flex justify-content-end">
-                    <img class="img-fluid" src="${user.items[index].url}" width=50%>
+                <div class="col-4 p-2 d-flex justify-content-end">
+                    <img class="img-fluid" src="${user.items[index].url}">
                 </div>
             </div>
             <p>How many would you like to buy?</p>
-            <input type="number" placeholder="0" class="col-12">
+            <input type="number" placeholder="0" class="form-control col-12">
             <p id="total_price" class="text-right">Total: ￥0</p>
             <div class="d-flex justify-content-between pb-3">
                 <button id="back" class="btn btn-outline-primary col-5 bg-white">Go Back</buttone>
@@ -272,7 +272,7 @@ class GameManager{
         new_btn.addEventListener("click", function(){
             let user_name = config.initial_form.querySelectorAll("input")[0].value;
             let user = GameManager.create_initial_user_account(user_name);
-            if(user == null){
+            if(user_name == ""){
                 alert("Not input your name!");
             }else{
                 GameManager.move_initial_to_main(user);
@@ -299,12 +299,12 @@ class GameManager{
 
     static create_initial_user_account(user_name){
         let items_list = [
-            new Items("Flip machine", "ability", 0, 500, 25, 0, 15000, "https://cdn.pixabay.com/photo/2019/06/30/20/09/grill-4308709_960_720.png"),
+            new Items("Oven", "ability", 0, 500, 25, 0, 15000, "https://4.bp.blogspot.com/-1XLKOBiyV70/VdL1S_5UDAI/AAAAAAAAw9U/OrE1WozGBV8/s800/oven_renji.png"),
             new Items("ETF Stock", "investment", 0, -1, 0, 0.1, 300000, "https://cdn.pixabay.com/photo/2016/03/31/20/51/chart-1296049_960_720.png"),
             new Items("ETF Bonds", "investment", 0, -1, 0, 0.07, 300000, "https://cdn.pixabay.com/photo/2016/03/31/20/51/chart-1296049_960_720.png"),
             new Items("Lemonade Stand", "realState", 0, 1000, 30, 0, 30000, "https://cdn.pixabay.com/photo/2012/04/15/20/36/juice-35236_960_720.png"),
             new Items("Ice Cream Truck", "realState", 0, 500, 120, 0, 100000, "https://cdn.pixabay.com/photo/2020/01/30/12/37/ice-cream-4805333_960_720.png"),
-            new Items("House", "realState", 0, 100, 32000, 0, 20000000, "https://cdn.pixabay.com/photo/2016/03/31/18/42/home-1294564_960_720.png"),
+            new Items("Shop", "realState", 0, 100, 32000, 0, 20000000, "https://1.bp.blogspot.com/-I0Mwy1j09XU/VUIJ7AWQxrI/AAAAAAAAtbg/feTqQhXaMOw/s800/omise_shop_tatemono.png"),
             new Items("TownHouse", "realState", 0, 100, 64000, 0, 40000000, "https://cdn.pixabay.com/photo/2019/06/15/22/30/modern-house-4276598_960_720.png"),
             new Items("Mansion", "realState", 0, 20, 500000, 0, 250000000, "https://cdn.pixabay.com/photo/2017/10/30/20/52/condominium-2903520_960_720.png"),
             new Items("Industrial Space", "realState", 0, 10, 2200000, 0, 1000000000, "https://cdn.pixabay.com/photo/2012/05/07/17/35/factory-48781_960_720.png"),
